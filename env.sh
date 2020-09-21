@@ -67,7 +67,7 @@ if ! docker ps | grep "${CONTAINER_NAME}" > '/dev/null' 2>&1; then
     if [ "x$ret_code" = "x200" ]; then
         readonly INIT_CMD="sleep infinity"
     else
-        readonly INIT_CMD="echo -e '[source.crates-io]\nreplace-with = \"rustcc\"\n[source.rustcc]\nregistry = \"https://code.aliyun.com/rustcc/crates.io-index.git\"' | sudo tee /opt/.cargo/config;sleep infinity"
+        readonly INIT_CMD="echo -e '[source.crates-io]\nreplace-with = \"tuna\"\n[source.tuna]\nregistry = \"https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index.git\"' | sudo tee /opt/.cargo/config;sleep infinity"
     fi
 
     docker run -d --init \
